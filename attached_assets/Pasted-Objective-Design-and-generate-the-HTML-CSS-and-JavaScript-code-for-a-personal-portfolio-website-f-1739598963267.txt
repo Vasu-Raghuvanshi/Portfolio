@@ -1,0 +1,53 @@
+Objective: Design and generate the HTML, CSS, and JavaScript code for a personal portfolio website for a BCA (Bachelor of Computer Applications) student currently learning data science.  The website should be clean, modern, and mobile-responsive.
+
+Target Audience: Recruiters, potential employers, and collaborators in the fields of software development and data science.
+
+Content & Sections:
+
+Homepage:
+A brief and engaging introduction about the student (name, current BCA program, aspirations in data science).
+A professional headshot.
+A concise summary of skills (programming languages, tools, technologies). Highlight any data science related skills (e.g., Python, R, SQL, machine learning libraries).
+Call to action buttons (e.g., "View Projects," "Contact Me," "Download Resume").
+About Me:
+A more detailed description of the student's background, academic journey, and passion for data science. Mention any relevant coursework, projects, or extracurricular activities related to data science.
+Personal interests (optional, but can help personalize the site).
+Projects:
+Showcase projects the student has worked on, especially those related to data science. For each project:
+Project title.
+Brief description of the project and its purpose.
+Technologies used.
+Link to the project repository (GitHub, GitLab, etc.) if available. If the project is not publicly hosted, consider including screenshots or a short video demonstration.
+Key accomplishments and learnings from the project.
+Skills:
+List technical skills, categorized (e.g., Programming Languages, Data Science Tools, Databases, Web Development). Include proficiency level (e.g., Beginner, Intermediate, Proficient) for each skill.
+Examples: Python (Intermediate), SQL (Beginner), Machine Learning (Beginner), HTML (Proficient), CSS (Intermediate), JavaScript (Beginner), Git (Intermediate), Tableau (Beginner).
+Resume:
+A downloadable version of the student's resume (PDF format preferred).
+Contact:
+A contact form for visitors to reach out.
+Links to social media profiles (LinkedIn, GitHub, etc.).
+Design & Aesthetics:
+
+Clean and Modern: Prioritize a minimalist and uncluttered design.
+Mobile Responsive: Ensure the website looks good and functions well on all devices (desktops, tablets, and smartphones).
+Color Scheme: Suggest a professional and visually appealing color palette (e.g., blues and grays, or a combination that reflects the student's personality).
+Typography: Choose clear and readable fonts.
+Layout: Use a clear and intuitive layout that makes it easy for visitors to navigate the website.
+Technical Requirements:
+
+HTML, CSS, and JavaScript: Use standard web technologies. Consider using a CSS framework like Bootstrap or Tailwind CSS for easier styling and responsiveness.
+Hosting: The generated code should be easily deployable to a web hosting service (e.g., Netlify, Vercel, GitHub Pages).
+Example Project Descriptions (for guidance):
+
+Project 1 (Data Science): "Predicting Customer Churn using Logistic Regression in Python. This project involved data cleaning, feature engineering, and model training to predict customer churn for a telecom company. Technologies: Python, Pandas, Scikit-learn."
+Project 2 (Web Development): "Developing a To-Do List App using JavaScript. This project focused on front-end development and implementing interactive features using JavaScript. Technologies: HTML, CSS, JavaScript."
+Output:
+
+Provide the complete HTML, CSS, and JavaScript code for the portfolio website.  Include clear instructions on how to set up and deploy the website.  If possible, provide a live demo or a link to a preview of the website.
+
+Bonus (Optional):
+
+Suggest ways to improve the website's SEO (Search Engine Optimization).
+Recommend free or affordable resources for hosting the website.
+This detailed prompt should provide the AI with enough information to create a professional and effective portfolio website for a BCA student learning data science.  Remember to iterate and refine the output based on your specific needs and preferences.
