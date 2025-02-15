@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "wouter";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [location] = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const scrollToSection = (sectionId: string) => {
+    if (location !== "/") {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -27,6 +34,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('about')} className="hover:text-primary">About</button>
             <button onClick={() => scrollToSection('projects')} className="hover:text-primary">Projects</button>
             <button onClick={() => scrollToSection('skills')} className="hover:text-primary">Skills</button>
+            <Link href="/blog" className="hover:text-primary">Blog</Link>
             <button onClick={() => scrollToSection('contact')} className="hover:text-primary">Contact</button>
           </div>
 
@@ -45,6 +53,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('about')} className="block w-full text-left hover:text-primary">About</button>
             <button onClick={() => scrollToSection('projects')} className="block w-full text-left hover:text-primary">Projects</button>
             <button onClick={() => scrollToSection('skills')} className="block w-full text-left hover:text-primary">Skills</button>
+            <Link href="/blog" className="block hover:text-primary">Blog</Link>
             <button onClick={() => scrollToSection('contact')} className="block w-full text-left hover:text-primary">Contact</button>
           </div>
         )}
