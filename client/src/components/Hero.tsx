@@ -5,33 +5,49 @@ import { Download } from "lucide-react";
 const AnimatedBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Gradient Orbs */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(circle at ${50 + i * 15}% ${50 + i * 10}%, 
-              rgba(123, 97, 255, 0.15) 0%,
-              rgba(123, 97, 255, 0.05) 25%,
-              transparent 50%)`,
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            x: [0, 50 + i * 20, 0],
-            y: [0, 30 + i * 10, 0],
-          }}
-          transition={{
-            duration: 8 + i * 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+      {/* Main Gradient Animation */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(circle at 20% 30%, rgba(123, 97, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(123, 97, 255, 0.15) 0%, transparent 50%)
+          `
+        }}
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      {/* Secondary Gradient Animation */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(circle at 70% 20%, rgba(123, 97, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 30% 80%, rgba(123, 97, 255, 0.12) 0%, transparent 50%)
+          `
+        }}
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.4, 0.6, 0.4],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+          delay: 4,
+        }}
+      />
 
       {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(12)].map((_, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute w-1 h-1 bg-primary/20 rounded-full"
@@ -40,15 +56,15 @@ const AnimatedBackground = () => {
             left: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 20 - 10, 0],
-            opacity: [0, 1, 0],
+            y: [0, -20, 0],
+            x: [0, Math.random() * 10 - 5, 0],
+            opacity: [0, 0.5, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: 4 + Math.random() * 2,
             repeat: Infinity,
             delay: Math.random() * 2,
-            ease: "easeInOut",
+            ease: "linear",
           }}
         />
       ))}
@@ -121,7 +137,7 @@ export default function Hero() {
             >
               <div className="absolute -inset-4 bg-primary/10 rounded-full blur-xl" />
               <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf"
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80"
                 alt="Profile"
                 className="rounded-full w-64 h-64 object-cover mx-auto ring-4 ring-primary/20 relative z-10"
               />
