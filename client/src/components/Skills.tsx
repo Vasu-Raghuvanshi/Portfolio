@@ -1,10 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-const skills = {
+type Skill = {
+  name: string;
+  level: number;
+  description: string;
+};
+
+type SkillCategory = {
+  [key: string]: Skill[];
+};
+
+const skills: SkillCategory = {
   "Programming Languages": [
     { name: "Python", level: 75, description: "Experienced in data analysis, web development, and automation scripts" },
     { name: "JavaScript", level: 60, description: "Proficient in modern ES6+, React, and Node.js development" },
@@ -26,11 +35,7 @@ const skills = {
 };
 
 export default function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
-  const categories = Object.keys(skills);
-  const filteredSkills = selectedCategory ? { [selectedCategory]: skills[selectedCategory] } : skills;
 
   return (
     <section id="skills" className="py-20 bg-muted/50">
@@ -45,92 +50,62 @@ export default function Skills() {
           Skills
         </motion.h2>
 
-        <motion.div 
-          className="flex flex-wrap justify-center gap-2 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <Button
-            variant={selectedCategory === null ? "default" : "outline"}
-            onClick={() => setSelectedCategory(null)}
-            className="mb-2"
-          >
-            All Categories
-          </Button>
-          {categories.map((category) => (
-            <Button
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {Object.entries(skills).map(([category, categorySkills], index) => (
+            <motion.div
               key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category)}
-              className="mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              className="transition-transform duration-300"
             >
-              {category}
-            </Button>
-          ))}
-        </motion.div>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedCategory || 'all'}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {Object.entries(filteredSkills).map(([category, categorySkills], index) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>{category}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {categorySkills.map((skill) => (
-                      <motion.div 
-                        key={skill.name}
-                        onHoverStart={() => setHoveredSkill(skill.name)}
-                        onHoverEnd={() => setHoveredSkill(null)}
-                        className="relative"
-                      >
-                        <div className="flex justify-between mb-1">
-                          <span>{skill.name}</span>
-                          <span>{skill.level}%</span>
-                        </div>
-                        <motion.div className="relative">
-                          <Progress 
-                            value={0} 
-                            className="h-2"
-                            initial={{ value: 0 }}
-                            animate={{ value: skill.level }}
-                            transition={{ duration: 1, delay: 0.2 }}
-                          />
+              <Card className="h-full backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-colors">
+                <CardHeader>
+                  <CardTitle>{category}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {categorySkills.map((skill) => (
+                    <motion.div 
+                      key={skill.name}
+                      onHoverStart={() => setHoveredSkill(skill.name)}
+                      onHoverEnd={() => setHoveredSkill(null)}
+                      className="relative group"
+                    >
+                      <div className="flex justify-between mb-1">
+                        <span className="font-medium group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </span>
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="relative">
+                        <Progress 
+                          value={skill.level} 
+                          className="h-2 group-hover:h-3 transition-all duration-300"
+                        />
+                        <AnimatePresence>
                           {hoveredSkill === skill.name && (
                             <motion.div
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: 10 }}
-                              className="absolute mt-2 p-2 bg-popover text-popover-foreground rounded-md shadow-lg text-sm w-full z-10"
+                              className="absolute mt-2 p-2 bg-popover/95 backdrop-blur-sm text-popover-foreground rounded-md shadow-lg text-sm w-full z-10"
                             >
                               {skill.description}
                             </motion.div>
                           )}
-                        </motion.div>
-                      </motion.div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+                        </AnimatePresence>
+                      </div>
+                    </motion.div>
+                  ))}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
