@@ -4,7 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
 import { useState } from "react";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github: string;
+}
+
+const projects: Project[] = [
   {
     title: "Customer Churn Prediction",
     description: "Developed a machine learning model to predict customer churn for a telecom company using Python and Scikit-learn.",
@@ -35,48 +43,68 @@ const projects = [
   }
 ];
 
-const ProjectCard = ({ project, index }) => {
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-100px" }}
     >
       <Card className="overflow-hidden border-primary/10 bg-background/50 backdrop-blur-sm hover:border-primary/30 transition-colors">
         <CardHeader className="p-0 relative">
           {!imageLoaded && (
             <div className="absolute inset-0 bg-muted animate-pulse" />
           )}
-          <img
-            src={project.image}
-            alt={project.title}
-            className={`w-full h-48 object-cover transition-opacity duration-300 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={() => setImageLoaded(true)}
-          />
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className={`w-full h-48 object-cover transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+              loading="lazy"
+            />
+          </motion.div>
         </CardHeader>
         <CardContent className="p-6">
           <CardTitle className="mb-2 text-primary">{project.title}</CardTitle>
           <p className="text-muted-foreground mb-4">{project.description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech) => (
-              <span
+              <motion.span
                 key={tech}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
                 className="px-2 py-1 bg-primary/10 rounded-full text-sm text-primary"
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
-          <Button variant="outline" className="border-primary/20 hover:bg-primary/10" asChild>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" /> View on GitHub
-            </a>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Button variant="outline" className="border-primary/20 hover:bg-primary/10" asChild>
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" /> View on GitHub
+              </a>
+            </Button>
+          </motion.div>
         </CardContent>
       </Card>
     </motion.div>
@@ -87,10 +115,18 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-background via-background/50 to-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-8"
+        >
+          Projects
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
       </div>
