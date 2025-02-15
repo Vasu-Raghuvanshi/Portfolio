@@ -36,10 +36,18 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-gradient-to-b from-background via-background/50 to-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
-        
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-center mb-8"
+        >
+          Projects
+        </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
@@ -48,29 +56,32 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
-              <Card>
-                <CardHeader>
-                  <img
+              <Card className="overflow-hidden border-primary/10 bg-background/50 backdrop-blur-sm hover:border-primary/30 transition-colors">
+                <CardHeader className="p-0">
+                  <motion.img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    className="w-full h-48 object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   />
                 </CardHeader>
-                <CardContent>
-                  <CardTitle className="mb-2">{project.title}</CardTitle>
+                <CardContent className="p-6">
+                  <CardTitle className="mb-2 text-primary">{project.title}</CardTitle>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-primary/10 rounded-full text-sm"
+                        className="px-2 py-1 bg-primary/10 rounded-full text-sm text-primary"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" className="border-primary/20 hover:bg-primary/10" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" /> View on GitHub
                     </a>
