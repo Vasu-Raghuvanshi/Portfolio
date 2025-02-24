@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
+  const [, setLocation] = useLocation();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,8 +38,7 @@ export default function Login() {
         
         // Redirect after a short delay to ensure cookie is set
         setTimeout(() => {
-          router.push("/admin/blogs");
-          router.refresh();
+          setLocation("/admin/blogs");
         }, 500);
       } else {
         toast.error(data.error || "Invalid credentials");
