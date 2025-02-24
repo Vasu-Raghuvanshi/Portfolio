@@ -15,16 +15,19 @@ type SkillCategory = {
 
 const skills: SkillCategory = {
   "Programming Languages": [
-    { name: "Python", level: 75, description: "Experienced in data analysis, web development, and automation scripts" },
+    { name: "Python", level:85, description: "Experienced in data analysis, web development, and automation scripts" },
     { name: "JavaScript", level: 60, description: "Proficient in modern ES6+, React, and Node.js development" },
-    { name: "R", level: 40, description: "Basic knowledge for statistical analysis and data visualization" },
-    { name: "SQL", level: 65, description: "Strong database management and query optimization skills" }
+    { name: "C++", level: 70, description: "Basic knowledge for efficient programs and algorithm design" },
+    { name: "SQL", level: 1, description: "Strong database management and query optimization skills" }
   ],
   "Data Science Tools": [
+    { name: "Numpy", level: 70, description: "Numerical operations and data manipulation" },
     { name: "Pandas", level: 70, description: "Advanced data manipulation and analysis" },
-    { name: "Scikit-learn", level: 60, description: "Machine learning model development and evaluation" },
-    { name: "TensorFlow", level: 40, description: "Basic neural network implementation and training" },
-    { name: "Tableau", level: 50, description: "Data visualization and dashboard creation" }
+    { name: "Matplotlib", level: 70, description: "Basic plotting and visualization" },
+    { name: "Seaborn", level: 70, description: "Advanced data visualization" },
+    { name: "Scikit-learn", level: 1, description: "Machine learning model development and evaluation" },
+    { name: "TensorFlow", level: 1, description: "Basic neural network implementation and training" },
+    // { name: "Tableau", level: 1, description: "Data visualization and dashboard creation" }
   ],
   "Web Development": [
     { name: "HTML/CSS", level: 80, description: "Responsive design and modern CSS frameworks" },

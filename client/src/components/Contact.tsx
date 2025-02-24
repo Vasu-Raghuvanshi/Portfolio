@@ -57,7 +57,7 @@ export default function Contact() {
               <CardContent>
                 <div className="space-y-4">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/Vasu-Raghuvanshi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-primary"
@@ -65,7 +65,7 @@ export default function Contact() {
                     <Github className="h-5 w-5" /> GitHub
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/vasu-raghuvanshi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 hover:text-primary"
@@ -73,10 +73,10 @@ export default function Contact() {
                     <Linkedin className="h-5 w-5" /> LinkedIn
                   </a>
                   <a
-                    href="mailto:example@email.com"
+                    href="mailto:vasuraghuvanshi001@gmail.com"
                     className="flex items-center gap-2 hover:text-primary"
                   >
-                    <Mail className="h-5 w-5" /> example@email.com
+                    <Mail className="h-5 w-5" /> vasuraghuvanshi001@gmail.com
                   </a>
                 </div>
               </CardContent>

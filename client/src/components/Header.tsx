@@ -36,6 +36,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('skills')} className="hover:text-primary">Skills</button>
             <Link href="/blog" className="hover:text-primary">Blog</Link>
             <button onClick={() => scrollToSection('contact')} className="hover:text-primary">Contact</button>
+            <Link href="/login" className="hover:text-primary">Login</Link>
           </div>
 
           <Button
@@ -49,12 +50,15 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-4 space-y-4 pb-4">
-            <button onClick={() => scrollToSection('about')} className="block w-full text-left hover:text-primary">About</button>
-            <button onClick={() => scrollToSection('projects')} className="block w-full text-left hover:text-primary">Projects</button>
-            <button onClick={() => scrollToSection('skills')} className="block w-full text-left hover:text-primary">Skills</button>
-            <Link href="/blog" className="block hover:text-primary">Blog</Link>
-            <button onClick={() => scrollToSection('contact')} className="block w-full text-left hover:text-primary">Contact</button>
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b">
+            <div className="flex flex-col space-y-4 p-4">
+              <button onClick={() => scrollToSection('about')} className="hover:text-primary">About</button>
+              <button onClick={() => scrollToSection('projects')} className="hover:text-primary">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="hover:text-primary">Skills</button>
+              <Link href="/blog" className="hover:text-primary">Blog</Link>
+              <button onClick={() => scrollToSection('contact')} className="hover:text-primary">Contact</button>
+              <Link href="/login" className="hover:text-primary">Login</Link>
+            </div>
           </div>
         )}
       </nav>

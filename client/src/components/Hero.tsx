@@ -92,7 +92,7 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
             >
-              Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60">John Doe</span>
+              Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60">Vasu Raghuvanshi</span>
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl text-muted-foreground mb-6"

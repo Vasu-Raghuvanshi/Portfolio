@@ -14,32 +14,32 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Customer Churn Prediction",
-    description: "Developed a machine learning model to predict customer churn for a telecom company using Python and Scikit-learn.",
-    image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?w=400&q=80",
-    technologies: ["Python", "Pandas", "Scikit-learn"],
-    github: "#"
+    title: "Sales Data Analysis",
+    description: " Analysed Sales Data using Python and obtained insights into customer behavior and trends.",
+    image: "https://cdn.pixabay.com/photo/2016/06/03/13/57/digital-marketing-1433427_1280.jpg",
+    technologies: ["Python","Numpy","Pandas","Matplotlib","Seaborn"],
+    github: "https://github.com/Vasu-Raghuvanshi/Data-Analysis-1/blob/main/DataAnalysisDemo.ipynb"
   },
   {
-    title: "Interactive Dashboard",
-    description: "Created an interactive dashboard for visualizing sales data using React and D3.js.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80",
-    technologies: ["React", "D3.js", "Tailwind CSS"],
-    github: "#"
+    title: "HakerRank Clone Website",
+    description: "Created a clone of HackerRank website using HTML, CSS, and JavaScript.",
+    image: "https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536_1280.jpg",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Vasu-Raghuvanshi/HackerRank-Clone-Project-CWH-"
   },
   {
-    title: "Data Analysis Tool",
-    description: "Built a web application for analyzing and visualizing dataset patterns.",
-    image: "https://images.unsplash.com/photo-1739514984003-330f7c1d2007?w=400&q=80",
-    technologies: ["Python", "Flask", "PostgreSQL"],
-    github: "#"
+    title: "Jarvis Personal Assistant",
+    description: "A personal assistant using Python with speech recognition and API integration.(Under Development)",
+    image: "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg",
+    technologies: ["Python", "OpenAIAPI",],
+    github: "https://github.com/Vasu-Raghuvanshi/Python-Code-Repo-/blob/main/Python/Python-Projects/Assistant/assistant.py"
   },
   {
-    title: "Task Management App",
-    description: "Developed a full-stack task management application with authentication.",
-    image: "https://images.unsplash.com/photo-1510759395231-72b17d622279?w=400&q=80",
-    technologies: ["React", "Node.js", "MongoDB"],
-    github: "#"
+    title: "Personal Portfolio Website",
+    description: "A personal portfolio website using AI Agents, built with React, Next.js, and TypeScript.",
+    image: "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg",
+    technologies: ["React", "Node.js", "Typescript"],
+    github: "https://github.com/Vasu-Raghuvanshi/Portfolio-Website"
   }
 ];
 
