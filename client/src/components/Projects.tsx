@@ -143,7 +143,10 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-background via-background/50 to-background">
+    <section 
+      id="projects" 
+      className="py-20 scroll-mt-16 bg-gradient-to-b from-background via-background/50 to-background"
+    >
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

@@ -74,7 +74,11 @@ const AnimatedBackground = () => {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen pt-20 flex items-center bg-gradient-to-b from-background via-background/80 to-background">
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center bg-gradient-to-b from-background via-background/80 to-background scroll-mt-16"
+      style={{ paddingTop: 'calc(4rem + env(safe-area-inset-top))' }}
+    >
       <AnimatedBackground />
 
       {/* Main Content */}
