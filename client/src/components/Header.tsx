@@ -1,20 +1,13 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "wouter";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const scrollToSection = (sectionId: string) => {
-    if (location !== "/") {
-      window.location.href = `/#${sectionId}`;
-      return;
-    }
-
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -34,9 +27,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('about')} className="hover:text-primary">About</button>
             <button onClick={() => scrollToSection('projects')} className="hover:text-primary">Projects</button>
             <button onClick={() => scrollToSection('skills')} className="hover:text-primary">Skills</button>
-            <Link href="/blog" className="hover:text-primary">Blog</Link>
             <button onClick={() => scrollToSection('contact')} className="hover:text-primary">Contact</button>
-            <Link href="/login" className="hover:text-primary">Login</Link>
           </div>
 
           <Button
@@ -50,15 +41,11 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b">
-            <div className="flex flex-col space-y-4 p-4">
-              <button onClick={() => scrollToSection('about')} className="hover:text-primary">About</button>
-              <button onClick={() => scrollToSection('projects')} className="hover:text-primary">Projects</button>
-              <button onClick={() => scrollToSection('skills')} className="hover:text-primary">Skills</button>
-              <Link href="/blog" className="hover:text-primary">Blog</Link>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-primary">Contact</button>
-              <Link href="/login" className="hover:text-primary">Login</Link>
-            </div>
+          <div className="md:hidden mt-4 pb-4 space-y-4">
+            <button onClick={() => scrollToSection('about')} className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg">About</button>
+            <button onClick={() => scrollToSection('projects')} className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg">Projects</button>
+            <button onClick={() => scrollToSection('skills')} className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg">Skills</button>
+            <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg">Contact</button>
           </div>
         )}
       </nav>
