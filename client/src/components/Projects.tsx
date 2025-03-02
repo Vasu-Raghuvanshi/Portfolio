@@ -32,7 +32,7 @@ const projects: Project[] = [
     description: "A personal assistant using Python with speech recognition and API integration.(Under Development)",
     image: "https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg",
     technologies: ["Python", "OpenAIAPI",],
-    github: "https://github.com/Vasu-Raghuvanshi/Python-Code-Repo-/blob/main/Python/Python-Projects/Assistant/assistant.py"
+    github: "https://github.com/Vasu-Raghuvanshi/Python-Projects/tree/main/Assistant"
   },
   {
     title: "Personal Portfolio Website",
